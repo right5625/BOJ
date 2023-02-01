@@ -1,3 +1,4 @@
+# 위상 정렬
 import sys
 from collections import deque
 input = lambda : sys.stdin.readline().rstrip()
@@ -7,7 +8,6 @@ m = int(input())
 A = [[] for _ in range(n + 1)]
 rA = [[] for _ in range(n + 1)]
 D = [0] * (n + 1)
-res = [0] * (n + 1)
 for _ in range(m):
     s, e, w = map(int, input().split())
     A[s].append((e, w))
@@ -15,6 +15,7 @@ for _ in range(m):
     D[e] += 1
 S, E = map(int, input().split())
 deq = deque([S])
+res = [0] * (n + 1)
 while deq:
     n = deq.popleft()
     for i in A[n]:
@@ -25,6 +26,7 @@ while deq:
 deq.append(E)
 cnt = 0
 vst = [False] * (n + 1)
+vst[E] = True
 while deq:
     n = deq.popleft()
     for i in rA[n]:
