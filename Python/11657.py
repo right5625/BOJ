@@ -1,3 +1,4 @@
+# 벨만-포드
 import sys
 input = lambda : sys.stdin.readline().rstrip()
 
@@ -14,7 +15,7 @@ for s, e, w in E:
     if D[s] != sys.maxsize and D[e] > D[s] + w:
         flag = True
         break
-if D[1] != 0:
+if flag:
     print(-1)
 else:
     for i in D[2:]:
