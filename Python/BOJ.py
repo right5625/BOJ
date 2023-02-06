@@ -1,2 +1,1 @@
-S = input()
-print(len(S) + S.count(':') + S.count('_') * 5)
+x1, y1 = map(int, input().split())
