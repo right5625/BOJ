@@ -1,17 +1,15 @@
-import math
+def DFS(n, d):
+    vst[n] = True
+    lst[d] = n
+    for i in range(1, N + 1):
+        if not vst[i]:
+            DFS(i, d + 1)
+    vst[n] = False
+    if d == M:
+        print(*lst[1 : M + 1], sep = ' ')
 
-N = int(input())
-prime = [True] * (N + 1)
-prime[0] = prime[1] = False
-for i in range(2, int(math.sqrt(N)) + 1):
-    if prime[i]:
-        for j in range(i * 2, N + 1, i):
-            prime[j] = False
-res = []
-while N > 1:
-    for i in range(2, N + 1):
-        if prime[i] and N % i == 0:
-            res.append(i)
-            N //= i
-if res:
-    print(*sorted(res), sep = '\n')
+N, M = map(int, input().split())
+vst = [False] * (N + 1)
+lst = [0] * (N + 1)
+for i in range(1, N + 1):
+    DFS(i, 1)
