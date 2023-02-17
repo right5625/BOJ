@@ -1,15 +1,5 @@
-def DFS(n, d):
-    vst[n] = True
-    lst[d] = n
-    for i in range(1, N + 1):
-        if not vst[i]:
-            DFS(i, d + 1)
-    vst[n] = False
-    if d == M:
-        print(*lst[1 : M + 1], sep = ' ')
-
-N, M = map(int, input().split())
-vst = [False] * (N + 1)
-lst = [0] * (N + 1)
-for i in range(1, N + 1):
-    DFS(i, 1)
+N = int(input())
+DP = [i for i in range(N + 1)]
+for i in range(4, N + 1):
+    DP[i] = (DP[i - 1] + DP[i - 2]) % 15746
+print(DP[N])
