@@ -1,3 +1,4 @@
+# 큐, 덱
 import sys
 from collections import deque
 input = lambda : sys.stdin.readline().rstrip()
