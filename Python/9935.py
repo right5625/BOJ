@@ -1,3 +1,4 @@
+# 스택
 S = input()
 B = input()
 length = len(B)
