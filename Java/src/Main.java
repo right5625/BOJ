@@ -1,33 +1,32 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main
 {
     public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
-        int S = Integer.parseInt(br.readLine());
+        List<String> strings = new ArrayList<>();
 
-        if (S >= 90)
+        try
         {
-            System.out.println("A");
+            String str;
+
+            while ((str = br.readLine()) != null)
+            {
+                String[] AB = str.split(" ");
+                int A = Integer.parseInt(AB[0]);
+                int B = Integer.parseInt(AB[1]);
+
+                System.out.println(A + B);
+            }
         }
-        else if (S >= 80)
+        catch (IOException e)
         {
-            System.out.println("B");
-        }
-        else if (S >= 70)
-        {
-            System.out.println("C");
-        }
-        else if (S >= 60)
-        {
-            System.out.println("D");
-        }
-        else
-        {
-            System.out.println("F");
+            throw new RuntimeException(e);
         }
     }
 }
