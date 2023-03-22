@@ -2,47 +2,31 @@ import sys
 from collections import deque
 input = lambda : sys.stdin.readline().rstrip()
 
-for _ in range(int(input())):
-    l = int(input())
-    s1, s2 = map(int, input().split())
-    e1, e2 = map(int, input().split())
-    vst = [[False for __ in range(l)] for _ in range(l)]
-    q = deque([[(s1, s2)]])
-    vst[s1][s2] = True
-    res = 0
-    while q:
-        v = q.popleft()
-        lst = []
-        for i in v:
-            if i[0] == e1 and i[1] == e2:
-                res -= 1
-                lst.clear()
-                break
-            if i[0] > 1 and i[1] > 0 and not vst[i[0] - 2][i[1] - 1]:
-                lst.append((i[0] - 2, i[1] - 1))
-                vst[i[0] - 2][i[1] - 1] = True
-            if i[0] > 0 and i[1] > 1 and not vst[i[0] - 1][i[1] - 2]:
-                lst.append((i[0] - 1, i[1] - 2))
-                vst[i[0] - 1][i[1] - 2] = True
-            if i[0] < l - 1 and i[1] > 1 and not vst[i[0] + 1][i[1] - 2]:
-                lst.append((i[0] + 1, i[1] - 2))
-                vst[i[0] + 1][i[1] - 2] = True
-            if i[0] < l - 2 and i[1] > 0 and not vst[i[0] + 2][i[1] - 1]:
-                lst.append((i[0] + 2, i[1] - 1))
-                vst[i[0] + 2][i[1] - 1] = True
-            if i[0] < l - 2 and i[1] < l - 1 and not vst[i[0] + 2][i[1] + 1]:
-                lst.append((i[0] + 2, i[1] + 1))
-                vst[i[0] + 2][i[1] + 1] = True
-            if i[0] < l - 1 and i[1] < l - 2 and not vst[i[0] + 1][i[1] + 2]:
-                lst.append((i[0] + 1, i[1] + 2))
-                vst[i[0] + 1][i[1] + 2] = True
-            if i[0] > 0 and i[1] < l - 2 and not vst[i[0] - 1][i[1] + 2]:
-                lst.append((i[0] - 1, i[1] + 2))
-                vst[i[0] - 1][i[1] + 2] = True
-            if i[0] > 1 and i[1] < l - 1 and not vst[i[0] - 2][i[1] + 1]:
-                lst.append((i[0] - 2, i[1] + 1))
-                vst[i[0] - 2][i[1] + 1] = True
-        if lst:
-            q.append(lst)
-        res += 1
-    print(res)
+M, N = map(int, input().split())
+T = [list(map(int, input().split())) for _ in range(N)]
+vst = [[False for __ in range(M)] for _ in range(N)]
+for i in range(N):
+    for j in range(M):
+        if T[i][j] == 0:
+            flag = False
+            if i == 0:
+                if j == 0:
+                    if T[0][1] == -1 and T[1][0] == -1:
+                        flag = True
+                        break
+                elif j == M - 1:
+                    if T[0][M - 2] == -1 and T[1][M - 1] == -1:
+                        flag = True
+                        break
+                else:
+                    if T[0][j - 1] == -1 and T[1][j] == -1 and T[0][j + 1] == -1:
+                        flag = True
+                        break
+                
+
+start = []
+for i in range(N):
+    for j in range(M):
+        if T[i][j] == 1:
+            start.append((i, j))
+q = deque(start)
