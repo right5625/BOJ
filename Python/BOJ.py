@@ -2,65 +2,26 @@ import sys
 from collections import deque
 input = lambda : sys.stdin.readline().rstrip()
 
-M, N = map(int, input().split())
-T = [list(map(int, input().split())) for _ in range(N)]
-flag = False
-for i in range(N):
-    for j in range(M):
-        if T[i][j] == 0:
-            if i == 0:
-                if j == 0:
-                    if T[i][j + 1] == -1 and T[i + 1][j] == -1:
-                        flag = True
-                        break
-                elif j == M - 1:
-                    if T[i][j - 1] == -1 and T[i + 1][j] == -1:
-                        flag = True
-                        break
-                else:
-                    if T[i][j - 1] == -1 and T[i + 1][j] == -1 and T[i][j + 1] == -1:
-                        flag = True
-                        break
-            elif i == N - 1:
-                if j == 0:
-                    if T[i][j + 1] == -1 and T[i - 1][j] == -1:
-                        flag = True
-                        break
-                elif j == M - 1:
-                    if T[i][j - 1] == -1 and T[i - 1][j] == -1:
-                        flag = True
-                        break
-                else:
-                    if T[i][j - 1] == -1 and T[i - 1][j] == -1 and T[i][j + 1] == -1:
-                        flag = True
-                        break
-            elif j == 0 and T[i - 1][j] == -1 and T[i][j + 1] == -1 and T[i + 1][j] == -1:
-                flag = True
-                break
-            elif j == M - 1 and T[i - 1][j] == -1 and T[i][j - 1] == -1 and T[i + 1][j] == -1:
-                flag = True
-                break
-            else:
-                if T[i - 1][j] == -1 and T[i][j + 1] == -1 and T[i + 1][j] == -1 and T[i][j - 1] == -1:
-                    flag = True
-                    break
-if flag:
-    print(-1)
-else:
-    start = []
-    for i in range(N):
-        for j in range(M):
-            if T[i][j] == 1:
-                start.append((i, j))
-    vst = [[False for __ in range(M)] for _ in range(N)]
+def BFS(s1, s2):
     q = deque()
-    res = []
-    for i in start:
-        q.append(i)
-        vst[i[0]][i[1]] = True
-        cnt = 0
-        while q:
-            v = q.popleft()
-            l = []
-            for j in v:
-                if T[j[0]][j[1]] == 1 and j[0] 
+    q.append((s1, s2, 0))
+    vst[s1][s2] = True
+    mx = [-2, -1, 1, 2, 2, 1, -1, -2]
+    my = [-1, -2, -2, -1, 1, 2, 2, 1]
+    while q:
+        ny, nx, cnt = q.popleft()
+        if ny == e1 and nx == e2:
+            return cnt
+        for j in range(8):
+            x = nx + mx[j]
+            y = ny + my[j]
+            if 0 <= x < l and 0 <= y < l and not vst[y][x]:
+                q.append((y, x, cnt + 1))
+                vst[y][x] = True
+                
+for _ in range(int(input())):
+    l = int(input())
+    s1, s2 = map(int, input().split())
+    e1, e2 = map(int, input().split())
+    vst = [[False for __ in range(l)] for _ in range(l)]
+    print(BFS(s1, s2))
