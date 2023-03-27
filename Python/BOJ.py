@@ -2,26 +2,32 @@ import sys
 from collections import deque
 input = lambda : sys.stdin.readline().rstrip()
 
-def BFS(s1, s2):
-    q = deque()
-    q.append((s1, s2, 0))
-    vst[s1][s2] = True
-    mx = [-2, -1, 1, 2, 2, 1, -1, -2]
-    my = [-1, -2, -2, -1, 1, 2, 2, 1]
-    while q:
-        ny, nx, cnt = q.popleft()
-        if ny == e1 and nx == e2:
-            return cnt
-        for j in range(8):
-            x = nx + mx[j]
-            y = ny + my[j]
-            if 0 <= x < l and 0 <= y < l and not vst[y][x]:
-                q.append((y, x, cnt + 1))
-                vst[y][x] = True
-                
-for _ in range(int(input())):
-    l = int(input())
-    s1, s2 = map(int, input().split())
-    e1, e2 = map(int, input().split())
-    vst = [[False for __ in range(l)] for _ in range(l)]
-    print(BFS(s1, s2))
+M, N, H = map(int, input().split())
+T = [[[-1 for __ in range(M + 2)] for _ in range(N + 2)]] + [[[-1 for __ in range(M + 2)]] + [[-1] + list(map(int, input().split())) + [-1] for __ in range(N)] + [[-1 for __ in range(M + 2)]] for _ in range(H)] + [[[-1 for __ in range(M + 2)] for _ in range(N + 2)]]
+q = deque([[(i, j, k) for i in range(1, H + 1) for j in range(1, N + 1) for k in range(1, M + 1) if T[i][j][k] == 1]])
+mx = [-1, 1, 0, 0, 0, 0]
+my = [0, 0, -1, 1, 0, 0]
+mz = [0, 0, 0, 0, -1, 1]
+res = 0
+while q:
+    v = q.popleft()
+    l = []
+    for i in v:
+        for j in range(6):
+            x = i[2] + mx[j]
+            y = i[1] + my[j]
+            z = i[0] + mz[j]
+            if T[z][y][x] == 0:
+                T[z][y][x] = 1
+                l.append((z, y, x))
+    if l:
+        q.append(l)
+        res += 1
+flag = False
+for i in range(1, H + 1):
+    for j in range(1, N + 1):
+        for k in range(1, M + 1):
+            if T[i][j][k] == 0:
+                flag = True
+                break
+print(-1 if flag else res)
