@@ -6,7 +6,7 @@ for _ in range(int(input())):
     price, dot, coupon, pay = input().split()
     price = float(price) * dots[dot]
     if coupon == 'C':
-        price *= 0.95
+        price *= 0.9
     if pay == 'C':
         if price - math.floor(price * 10) / 10 < 0.06:
             price = math.floor(price * 10) / 10
