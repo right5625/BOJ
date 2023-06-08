@@ -1,10 +1,9 @@
-D = int(input())
-E = int(input())
-W = int(input())
-A = max((D - 100) * 0.25, 0) + E * 0.15 + W * 0.2
-B = max((D - 250) * 0.45, 0) + E * 0.35 + W * 0.25
-print(f'Plan A costs {A:.2f}\nPlan B costs {B:.2f}')
-if A == B:
-    print('Plan A and B are the same price.')
-else:
-    print(f'Plan A is cheapest.' if A < B else 'Plan B is cheapest.')
+m = int(input())
+n = int(input())
+res = 0
+for i in range(1, m + 1):
+    for j in range(n, 0, -1):
+        if i + j == 10:
+            res += 1
+            break
+print('There is 1 way to get the sum 10.' if res == 1 else f'There are {res} ways to get the sum 10.')
