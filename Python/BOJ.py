@@ -1,15 +1,10 @@
-import sys
-input = lambda : sys.stdin.readline().rstrip()
-
-for c in range(int(input())):
-    S, M, F = input().split()
-    M = int(M[0]) * 12 + int(M[2 : -1])
-    F = int(F[0]) * 12 + int(F[2 : -1])
-    R = M + F + 5 if S == 'B' else M + F - 5
-    if R / 2 == R // 2:
-        start = R // 2 - 4
-        end = start + 8
-    else:
-        start = R // 2 - 3
-        end = start + 7
-    print(f'Case #{c + 1}: {start // 12}\'{start % 12}" to {end // 12}\'{end % 12}"')
+D = int(input())
+E = int(input())
+W = int(input())
+A = max((D - 100) * 0.25, 0) + E * 0.15 + W * 0.2
+B = max((D - 250) * 0.45, 0) + E * 0.35 + W * 0.25
+print(f'Plan A costs {A:.2f}\nPlan B costs {B:.2f}')
+if A == B:
+    print('Plan A and B are the same price.')
+else:
+    print(f'Plan A is cheapest.' if A < B else 'Plan B is cheapest.')
