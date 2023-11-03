@@ -1,6 +1,9 @@
-n = int(input())
-a = list(map(int, input().split()))
-DP = [1] * n
-for i in range(1, n):
-    DP[i] = DP[i - 1] + 1 if a[i - 1] < a[i] else 1
-print(max(DP))
+for i in range(int(input())):
+    L, n = map(int, input().split())
+    p = [0] + list(map(int, input().split()))
+    res = 1
+    cur = p[L]
+    while cur != 0:
+        cur = p[cur]
+        res += 1
+    print(f'Data Set {i + 1}:\n{res}\n')
