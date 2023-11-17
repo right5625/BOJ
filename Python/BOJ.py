@@ -1,12 +1,13 @@
-N, M = map(int, input().split())
-a = list(map(int, input().split()))
-res = []
-group = cur = 0
-for i in a:
-    if cur + i <= M:
-        cur += i
-    else:
-        group += 1
-        cur = i
-    res.append(group)
-print(*res, sep = '\n')
+import heapq
+
+a1, a2, a3, b1, b2, b3, L = map(int, input().split())
+heap = [-a1] * b1 + [-a2] * b2 + [-a3] * b3
+heapq.heapify(heap)
+l = res = 0
+while l < L:
+    if not heap:
+        res = 0
+        break
+    l += -heapq.heappop(heap)
+    res += 1
+print(res)
