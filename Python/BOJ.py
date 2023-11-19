@@ -1,4 +1,15 @@
 N = int(input())
-M = input()
-K = int(input())
-print(K - 1 if K % 2 == 0 else K) if M == 'annyong' else print(K - 1 if K != 1 else K + 1) if K % 2 == 1 else print(K)
+if N < 425:
+    print('Violet')
+elif N < 450:
+    print('Indigo')
+elif N < 495:
+    print('Blue')
+elif N < 570:
+    print('Green')
+elif N < 590:
+    print('Yellow')
+elif N < 620:
+    print('Orange')
+else:
+    print('Red')
