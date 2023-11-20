@@ -1,15 +1,13 @@
-N = int(input())
-if N < 425:
-    print('Violet')
-elif N < 450:
-    print('Indigo')
-elif N < 495:
-    print('Blue')
-elif N < 570:
-    print('Green')
-elif N < 590:
-    print('Yellow')
-elif N < 620:
-    print('Orange')
-else:
-    print('Red')
+import sys
+input = lambda : sys.stdin.readline().rstrip()
+
+D, C, R = map(int, input().split())
+C_lst = [int(input()) for _ in range(C)]
+D += sum([int(input()) for _ in range(R)])
+res = R
+for i in C_lst:
+    if D - i < 0:
+        break
+    D -= i
+    res += 1
+print(res)
