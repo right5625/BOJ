@@ -1,13 +1,8 @@
-import sys
-input = lambda : sys.stdin.readline().rstrip()
-
-D, C, R = map(int, input().split())
-C_lst = [int(input()) for _ in range(C)]
-D += sum([int(input()) for _ in range(R)])
-res = R
-for i in C_lst:
-    if D - i < 0:
-        break
-    D -= i
-    res += 1
-print(res)
+for i in range(int(input())):
+    N = int(input())
+    H = list(map(int, input().split()))
+    res = 0
+    for j in range(1, N - 1):
+        if H[j] > H[j - 1] and H[j] > H[j + 1]:
+            res +=1
+    print(f'Case #{i + 1}: {res}')
