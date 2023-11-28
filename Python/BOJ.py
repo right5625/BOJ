@@ -1,8 +1,7 @@
 N = int(input())
-S = list(map(int, input().split()))
-T, P = map(int, input().split())
-res = 0
-for i in S:
-    res += i // T if i % T == 0 else i // T + 1
-s = sum(S)
-print(f'{res}\n{s // P} {s % P}')
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+M = int(input())
+C = list(map(int, input().split()))
+new = [B[i] for i in range(N) if not A[i]][::-1]
+print(*(new + C[:M - len(new)])) if len(new) < M else print(*new[:M])
