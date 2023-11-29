@@ -1,7 +1,21 @@
-N = int(input())
-A = list(map(int, input().split()))
-B = list(map(int, input().split()))
-M = int(input())
-C = list(map(int, input().split()))
-new = [B[i] for i in range(N) if not A[i]][::-1]
-print(*(new + C[:M - len(new)])) if len(new) < M else print(*new[:M])
+import string
+
+leftKey = ['q', 'w', 'e', 'r', 't', 'y', 'a', 's', 'd', 'f', 'g', 'z', 'x', 'c', 'v', 'b']
+left = right = 0
+for i in input():
+    if i == ' ':
+        if left > right:
+            right += 1
+        else:
+            left += 1
+    else:
+        if i.lower() in leftKey:
+            left += 1
+        else:
+            right += 1
+        if i in string.ascii_uppercase:
+            if left > right:
+                right += 1
+            else:
+                left += 1
+print(left, right)
