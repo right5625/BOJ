@@ -1,2 +1,1 @@
-from math import pi
-print((((int(input()) / pi) ** 0.5 + 1) * 2) ** 2)
+print('AWHO' + 'O' * max(len(input()) - 3, 0))
