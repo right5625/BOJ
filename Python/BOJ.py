@@ -1,10 +1,2 @@
-p, r = map(int, input().split())
-v = p / r
-if v < 0.2:
-    print('weak')
-elif v < 0.4:
-    print('normal')
-elif v < 0.6:
-    print('strong')
-else:
-    print('very strong')
+lv, t = input().split()
+print({'miss' : 0, 'bad' : 200, 'cool' : 400, 'great' : 600, 'perfect' : 1000}[t] * int(lv))
