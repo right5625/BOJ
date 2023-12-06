@@ -1,5 +1,3 @@
-A, B = map(int, input().split())
-try:
-    print(int(24 / (24 / A + 24 / B)))
-except:
-    print(0)
+M, K = map(int, input().split())
+S = sum(list(map(int, input().split())))
+print(S // M if S % M == 0 else S // M + 1)
