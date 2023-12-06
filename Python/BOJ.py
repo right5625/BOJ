@@ -1,6 +1,5 @@
-res = [1001, 1001]
-for _ in range(int(input())):
-    x, y = map(int, input().split())
-    if res[1] > y:
-        res = [x, y]
-print(*res)
+A, B = map(int, input().split())
+try:
+    print(int(24 / (24 / A + 24 / B)))
+except:
+    print(0)
