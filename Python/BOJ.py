@@ -1,3 +1,6 @@
-n = int(input())
-S = input()
-print(min(S.count('u'), S.count('o'), S.count('s'), S.count('p'), S.count('c')))
+seat = {chr(i) : ['.'] * 20 for i in range(ord('A'), ord('J') + 1)}
+for _ in range(int(input())):
+    S = input()
+    seat[S[0]][int(S[1:]) - 1] = 'o'
+for i in seat.values():
+    print(*i, sep = '')
