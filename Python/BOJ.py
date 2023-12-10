@@ -1,6 +1,3 @@
-seat = {chr(i) : ['.'] * 20 for i in range(ord('A'), ord('J') + 1)}
-for _ in range(int(input())):
-    S = input()
-    seat[S[0]][int(S[1:]) - 1] = 'o'
-for i in seat.values():
-    print(*i, sep = '')
+N = int(input())
+A = list(map(int, input().split()))
+print(min(A[:A.index(-1)]) + min(A[A.index(-1) + 1:]))
