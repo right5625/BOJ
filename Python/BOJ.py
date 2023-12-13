@@ -1,11 +1,7 @@
-N, K = map(int, input().split())
-P = [input().split() for _ in range(N)]
-res = []
-for i in P:
-    t = ''
-    for j in i:
-        t += j * K
-    for _ in range(K):
-        res.append(t)
-for i in res:
-    print(*i)
+import heapq
+
+heap = []
+for _ in range(int(input())):
+    A, B = input().split()
+    heapq.heappush(heap, (-int(B), A))
+print(heapq.heappop(heap)[1])
