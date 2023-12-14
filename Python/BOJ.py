@@ -1,7 +1,3 @@
-import heapq
-
-heap = []
-for _ in range(int(input())):
-    A, B = input().split()
-    heapq.heappush(heap, (-int(B), A))
-print(heapq.heappop(heap)[1])
+T = input()
+key = ord('C') ^ ord(T[0])
+print(*[chr(ord(i) ^ key) for i in T], sep = '')
