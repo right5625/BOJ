@@ -1,10 +1,8 @@
-dic = {'B' : 0, 'S' : 0, 'A' : 0}
-N = int(input())
+import string
+
+dic = {i : 0 for i in string.ascii_lowercase}
+input()
 for i in input():
-    dic[i] += 1
-if dic['B'] == dic['S'] == dic['A']:
-    print('SCU')
-else:
-    for k, v in dic.items():
-        if v == max(dic.values()):
-            print(k, end = '')
+    if i not in ' ,.':
+        dic[i] += 1
+print(max(dic.values()))
