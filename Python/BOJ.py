@@ -1,8 +1,3 @@
-import string
-
-dic = {i : 0 for i in string.ascii_lowercase}
-input()
-for i in input():
-    if i not in ' ,.':
-        dic[i] += 1
-print(max(dic.values()))
+T = int(input())
+N = int(input())
+print('Padaeng_i Happy' if sum(list(map(int, input().split()))) >= T else 'Padaeng_i Cry')
