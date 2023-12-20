@@ -1,3 +1,2 @@
-T = int(input())
-N = int(input())
-print('Padaeng_i Happy' if sum(list(map(int, input().split()))) >= T else 'Padaeng_i Cry')
+for _ in range(int(input())):
+    print(*[i for i in list(map(int, input().split(', '))) if i % 4 == 0])
