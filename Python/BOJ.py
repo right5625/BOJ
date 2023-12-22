@@ -1,2 +1,5 @@
-input()
-print(1 if len(set(i[0] for i in list(input().split()))) == 1 else 0)
+idx = 0
+for i in input():
+    if i == 'KOREA'[idx % 5]:
+        idx += 1
+print(idx)
