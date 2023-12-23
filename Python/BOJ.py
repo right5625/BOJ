@@ -1,5 +1,9 @@
-idx = 0
-for i in input():
-    if i == 'KOREA'[idx % 5]:
-        idx += 1
-print(idx)
+import sys
+input = lambda : sys.stdin.readline().rstrip()
+
+res = []
+for _ in range(int(input())):
+    name = input()
+    if len(name) == 3:
+        res.append(name)
+print(sorted(res)[0])
