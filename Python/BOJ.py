@@ -1,10 +1,8 @@
-N = int(input())
-X, Y, R = map(int, input().split())
-res = [0, 0]
-for _ in range(N):
-    T = int(input())
-    if X - R < T < X + R:
-        res[0] += 1
-    elif X - R == T or X + R == T:
-        res[1] += 1
-print(*res)
+import sys
+input = lambda : sys.stdin.readline().rstrip()
+
+card = {i : 0 for i in ['STRAWBERRY', 'BANANA', 'LIME', 'PLUM']}
+for _ in range(int(input())):
+    S, X = input().split()
+    card[S] += int(X)
+print('YES' if 5 in list(card.values()) else 'NO')
