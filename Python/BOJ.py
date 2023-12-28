@@ -1,15 +1,9 @@
-input()
-dic = {i : 0 for i in 'roygbivROYGBIV'}
-for i in input():
-    if i in 'roygbivROYGBIV':
-        dic[i] = 1
-res1 = sum(list(dic[i] for i in 'roygbiv'))
-res2 = sum(list(dic[i] for i in 'ROYGBIV'))
-if res1 == 7 and res2 == 7:
-    print('YeS')
-elif res1 == 7:
-    print('yes')
-elif res2 == 7:
-    print('YES')
-else:
-    print('NO!')
+N = int(input())
+A = list(map(int, input().split()))
+cur = A[0]
+res = 1
+for i in A[1:]:
+    if (cur % 2 == 0 and i % 2 == 1) or (cur % 2 == 1 and i % 2 == 0):
+        cur = i
+        res += 1
+print(res)
