@@ -1,15 +1,8 @@
-N = int(input())
-a = []
-while len(a) < N:
-    a += list(map(int, input().split()))
-res = temp = 0
-for i in sorted(a)[::-1]:
-    if i % 2 == 0:
-        res += i
-    else:
-        if temp % 2 == 1:
-            res += (i + temp)
-            temp = 0
-        else:
-            temp = i
-print(res // 2)
+from string import ascii_lowercase
+
+for i in list(zip(*[ascii_lowercase[ascii_lowercase.find(i):] + ascii_lowercase[:ascii_lowercase.find(i)] for i in input()])):
+    try:
+        print({'northlondo' : 'NLCS', 'branksomeh' : 'BHA', 'koreainter' : 'KIS', 'stjohnsbur' : 'SJA'}[''.join(i)])
+        break
+    except:
+        pass
