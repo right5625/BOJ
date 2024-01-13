@@ -1,7 +1,7 @@
-N, M = map(int, input().split())
-a = list(map(int, input().split())) + [0] * max(M - N, 0)
-b = list(map(int, input().split()))
+A = list(input().split())
+B = input()
 res = 0
-for i in range(M):
-    res = max(res, b[i] - a[i])
+for i in A:
+    if i != B and i[:len(B)] == B:
+        res += 1
 print(res)
