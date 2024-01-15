@@ -1,13 +1,2 @@
-import sys
-input = lambda : sys.stdin.readline().rstrip()
-
-N, K = map(int, input().split())
-lst = [0]
-cnt = 0
-for i in [list(map(int, input().split())) for _ in range(N)]:
-    if i[0] < i[1]:
-        lst.append(i[1] - i[0])
-    else:
-        cnt += 1
-lst.sort()
-print(lst[max(K - cnt, 0)])
+res = [(i[2] * 60 + i[3]) - (i[0] * 60 + i[1]) if i[0] * 60 + i[1] < i[2] * 60 + i[3] else (i[2] * 60 + i[3]) - (i[0] * 60 + i[1]) + 1440 for i in [list(map(int, input().split())) for _ in range(3)]]
+print(f'{min(res) // 60}:{min(res) % 60:02d}\n{max(res) // 60}:{max(res) % 60:02d}')
