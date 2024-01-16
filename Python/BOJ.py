@@ -1,2 +1,13 @@
-res = [(i[2] * 60 + i[3]) - (i[0] * 60 + i[1]) if i[0] * 60 + i[1] < i[2] * 60 + i[3] else (i[2] * 60 + i[3]) - (i[0] * 60 + i[1]) + 1440 for i in [list(map(int, input().split())) for _ in range(3)]]
-print(f'{min(res) // 60}:{min(res) % 60:02d}\n{max(res) // 60}:{max(res) % 60:02d}')
+S = list(input().split('|'))
+C = A = 0
+for i in S:
+    if i[0] in 'CFG':
+        C += 1
+    elif i[0] in 'ADE':
+        A += 1
+if C == A:
+    if S[-1][-1] in 'CFG':
+        C += 1
+    elif S[-1][-1] in 'ADE':
+        A += 1
+print('C-major' if C > A else 'A-minor')
