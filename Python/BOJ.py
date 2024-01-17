@@ -1,13 +1,15 @@
-S = list(input().split('|'))
-C = A = 0
-for i in S:
-    if i[0] in 'CFG':
-        C += 1
-    elif i[0] in 'ADE':
-        A += 1
-if C == A:
-    if S[-1][-1] in 'CFG':
-        C += 1
-    elif S[-1][-1] in 'ADE':
-        A += 1
-print('C-major' if C > A else 'A-minor')
+white = []
+black = []
+n = 0
+for i in range(8):
+    for j in range(1, 9):
+        if j % 2 == n:
+            white.append('ABCDEFGH'[i] + str(j))
+            white.append(str(i * 8 + j))
+        else:
+            black.append('ABCDEFGH'[i] + str(j))
+            black.append(str(i * 8 + j))
+    n = abs(n - 1)
+for _ in range(int(input())):
+    n1, n2 = input().split()
+    print('YES' if (n1 in white and n2 in white) or (n1 in black and n2 in black) else 'NO')
