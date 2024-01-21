@@ -1,2 +1,11 @@
-a, b, c = map(int, input().split())
-print('YES' if c >= abs(a) + abs(b) and (c - (abs(a) + abs(b))) % 2 == 0 else 'NO')
+N = int(input())
+res = 1
+prev = temp = 0
+for i in list(map(int, input().split())):
+    if prev <= i:
+        temp += 1
+    else:
+        res = max(res, temp)
+        temp = 1
+    prev = i
+print(max(res, temp))
