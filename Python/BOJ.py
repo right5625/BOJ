@@ -1,1 +1,4 @@
-print(sorted(list(map(int, input().split())))[1])
+import math
+
+N, M, K = map(int, input().split())
+print(math.ceil(N / (K - M)))
