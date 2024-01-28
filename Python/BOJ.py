@@ -1,6 +1,2 @@
-A = int(input())
-B = int(input())
-C = int(input())
-S = str(A * B * C)
-for i in range(10):
-    print(S.count(str(i)))
+S = input()
+print(sum([S.count(i) for i in 'aeiou']), sum([S.count(i) for i in 'aeiouy']))
