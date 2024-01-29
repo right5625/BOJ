@@ -1,2 +1,2 @@
-S = input()
-print(sum([S.count(i) for i in 'aeiou']), sum([S.count(i) for i in 'aeiouy']))
+for i in input():
+    print(i * sum(list(map(int, str(ord(i))))))
