@@ -1,9 +1,11 @@
-m = [int(input()) for _ in range(int(input()))]
-if 3 in m:
-    print('None')
-elif m.count(5) == len(m):
-    print('Named')
-elif sum(m) / len(m) >= 4.5:
-    print('High')
+n, a, b = map(int, input().split())
+w = [int(input()) for _ in range(n - 1)]
+if a not in w and b not in w:
+    print(-1)
+elif a not in w:
+    print(a)
+elif b not in w:
+    print(b)
 else:
-    print('Common')
+    for i in range(a, b + 1):
+        print(i)
