@@ -1,5 +1,4 @@
-import sys
-input = lambda : sys.stdin.readline().rstrip()
-
-for _ in range(int(input())):
-    print(int(input()) * 23)
+N = int(input())
+A = list(map(int, input().split()))
+X, Y = map(int, input().split())
+print(int(N * X // 100), len(list(filter(lambda n : n >= Y, A))))
