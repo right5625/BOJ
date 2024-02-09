@@ -1,4 +1,2 @@
-N = int(input())
-A = list(map(int, input().split()))
-X, Y = map(int, input().split())
-print(int(N * X // 100), len(list(filter(lambda n : n >= Y, A))))
+S = input()
+print(sorted({int(i) : sum([(int(S[j]) - int(i[j])) ** 2 for j in range(4)]) * sum([(int(S[j]) - int(i[j])) ** 2 for j in range(4, 6)]) * sum([(int(S[j]) - int(i[j])) ** 2 for j in range(6, 8)]) for i in [input() for _ in range(int(input()))]}.items(), key = lambda x : (-x[1], x[0]))[0][0])
