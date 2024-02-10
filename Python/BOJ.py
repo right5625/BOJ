@@ -1,2 +1,7 @@
-S = input()
-print(sorted({int(i) : sum([(int(S[j]) - int(i[j])) ** 2 for j in range(4)]) * sum([(int(S[j]) - int(i[j])) ** 2 for j in range(4, 6)]) * sum([(int(S[j]) - int(i[j])) ** 2 for j in range(6, 8)]) for i in [input() for _ in range(int(input()))]}.items(), key = lambda x : (-x[1], x[0]))[0][0])
+N = input()
+n = N[-1] + N[:-1]
+res = int(N)
+while n != N:
+    res += int(n)
+    n = n[-1] + n[:-1]
+print(res)
