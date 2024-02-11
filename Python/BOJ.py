@@ -1,7 +1,4 @@
-N = input()
-n = N[-1] + N[:-1]
-res = int(N)
-while n != N:
-    res += int(n)
-    n = n[-1] + n[:-1]
-print(res)
+N = int(input())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+print(f'{sum(A)}\n{sum([A[i] for i in range(N) if not B[i]])}')
