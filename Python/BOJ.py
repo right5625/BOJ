@@ -1,5 +1,10 @@
-def gcd(a, b):
-    return b if a == 0 else gcd(b % a, a)
-
-N = list(map(int, input().split()))
-print(min([(N[i] * N[j] // gcd(N[i], N[j]) * N[k]) // gcd(N[i] * N[j] // gcd(N[i], N[j]), N[k]) for i in range(5) for j in range(i + 1, 5) for k in range(j + 1, 5)]))
+lst = [0]
+idx = 0
+n = 1
+while idx < 1001:
+    for i in [n] * n:
+        lst.append(i)
+        idx += 1
+    n += 1
+A, B = map(int, input().split())
+print(sum(lst[A : B + 1]))
