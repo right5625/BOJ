@@ -1,2 +1,1 @@
-N = int(input())
-print(list(input().split()).count(input()))
+print(int(str(sum(list(map(int, input()[::-1].split()))))[::-1]))
