@@ -1,5 +1,7 @@
-N, K = map(int, input().split())
-A = list(map(int, input().split(',')))
-for i in range(K):
-    A = [A[j + 1] - A[j] for j in range(N - (i + 1))]
-print(*A, sep = ',')
+N = int(input())
+n, d = 10, -1
+while N > n:
+    N = round(N + 0.00000001, d)
+    n *= 10
+    d -= 1
+print(int(N))
