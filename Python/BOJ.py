@@ -1,4 +1,9 @@
-K = int(input())
-S = input()
-for i in list(zip(*[S[K * i : K * (i + 1)] if i % 2 == 0 else S[K * i : K * (i + 1)][::-1] for i in range(len(S) // K)])):
-    print(*i, sep = '', end = '')
+R, C, ZR, ZC = map(int, input().split())
+res = []
+for i in [input() for _ in range(R)]:
+    t = ''
+    for j in range(C):
+        t += i[j] * ZC
+    for _ in range(ZR):
+        res.append(t)
+print(*res, sep = '\n')
