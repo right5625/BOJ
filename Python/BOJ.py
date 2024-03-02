@@ -1,2 +1,2 @@
-M, K = map(int, input().split())
-print('Yes' if M % K == 0 else 'No')
+for _ in range(int(input())):
+    print(sorted(list(map(int, input().split())))[7])
