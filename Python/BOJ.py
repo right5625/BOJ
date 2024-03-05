@@ -1,2 +1,2 @@
-S = input()
-print(S[1:-1] if len(S) > 2 and S[0] == S[-1] == '"' else 'CE')
+n = int(input())
+print(777 if sum([list(map(int, input().split())) for _ in range(3)], []).count(7) == 3 else 0)
