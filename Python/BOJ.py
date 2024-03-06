@@ -1,2 +1,9 @@
-n = int(input())
-print(777 if sum([list(map(int, input().split())) for _ in range(3)], []).count(7) == 3 else 0)
+n = input()
+res = -1
+t = ''
+for i in range(1, 11):
+    t += str(i)
+    if n == t:
+        res = i
+        break
+print(res)
