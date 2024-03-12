@@ -1,2 +1,9 @@
-M = int(input())
-print((M - 30) * 1.5 + 15 if M > 30 else M / 2)
+n = int(input())
+res = temp = 0
+for i in list(map(int, input().split())):
+    if i:
+        temp += 1
+    else:
+        res = max(res, temp)
+        temp = 0
+print(max(res, temp))
