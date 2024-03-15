@@ -1,1 +1,1 @@
-print(int(input()) * int(input()) + int(input()))
+print(1 if int(input()) % 7 == 2 else 0)
