@@ -1,1 +1,1 @@
-print(1 if int(input()) % 7 == 2 else 0)
+print(int(input()) * 60 + int(input()))
