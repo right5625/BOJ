@@ -1,1 +1,2 @@
-print(len(str(int(input()) + int(input()))))
+N = int(input())
+print('Yes' if len(set(input())) == 1 else 'No')
