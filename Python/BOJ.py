@@ -1,2 +1,2 @@
 N = int(input())
-print('Yes' if len(set(input())) == 1 else 'No')
+print('Yes' if input().find('ooo') != -1 else 'No')
