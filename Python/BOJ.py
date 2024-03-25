@@ -1,2 +1,6 @@
-N = int(input())
-print('Yes' if input().find('ooo') != -1 else 'No')
+prev = res = ''
+for i in input():
+    if prev != i:
+        res += i
+    prev = i
+print(res)
