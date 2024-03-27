@@ -1,11 +1,9 @@
-K = int(input())
-N = int(input())
-A = list(map(int, input().split()))
-M = int(input())
-B = list(map(int, input().split()))
+R = [list(input().split()) for _ in range(10)]
 res = 0
-for i in A:
-    for j in B:
-        if j - i == K:
-            res += 1
+for i in R:
+    if len(set(i)) == 1:
+        res = 1
+for i in list(zip(*R)):
+    if len(set(i)) == 1:
+        res = 1
 print(res)
