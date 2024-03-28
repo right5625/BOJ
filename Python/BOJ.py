@@ -1,9 +1,16 @@
-R = [list(input().split()) for _ in range(10)]
-res = 0
-for i in R:
-    if len(set(i)) == 1:
-        res = 1
-for i in list(zip(*R)):
-    if len(set(i)) == 1:
-        res = 1
+N = int(input())
+A = [input() for _ in range(N)]
+B = ['' for _ in range(max([len(i) for i in A]))]
+for i in A:
+    for j in range(len(B)):
+        try:
+            B[j] += i[j]
+        except:
+            pass
+res = ''
+for i in B:
+    t = 0
+    for j in i:
+        t += ord(j)
+    res += chr(t // len(i))
 print(res)
