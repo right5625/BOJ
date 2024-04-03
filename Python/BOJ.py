@@ -1,8 +1,16 @@
-N, M = map(int, input().split())
-lst = list(zip(*[list(input()) for _ in range(N)]))
-res = 'ESCAPE FAILED'
-for i in range(M):
-    if len(set(lst[i])) == 1 and lst[i][0] == 'X':
-        res = i + 1
+Cu, Du = map(int, input().split())
+Cd, Dd = map(int, input().split())
+Cp, Dp = map(int, input().split())
+H = int(input())
+res = 0
+while True:
+    if res % Cu == 0:
+        H -= Du
+    if res % Cd == 0:
+        H -= Dd
+    if res % Cp == 0:
+        H -= Dp
+    if H <= 0:
         break
+    res += 1
 print(res)
