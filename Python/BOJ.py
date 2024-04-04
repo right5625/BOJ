@@ -1,16 +1,5 @@
-Cu, Du = map(int, input().split())
-Cd, Dd = map(int, input().split())
-Cp, Dp = map(int, input().split())
-H = int(input())
-res = 0
-while True:
-    if res % Cu == 0:
-        H -= Du
-    if res % Cd == 0:
-        H -= Dd
-    if res % Cp == 0:
-        H -= Dp
-    if H <= 0:
-        break
-    res += 1
-print(res)
+for _ in range(int(input())):
+    n = input()
+    if n[len(n) - 1] == '!':
+        n = n.rstrip('!')[:-1] + '1'
+    print(0 if n.count('!') % 2 == 0 else 1) if n[-1] == '0' else print(1 if n.count('!') % 2 == 0 else 0)
