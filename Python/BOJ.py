@@ -1,7 +1,10 @@
-N, S = input().split()
-res = 0
-for _ in range(int(N)):
-    s, n = input().split()
-    if S in list(s.split('_')):
-        res += int(n)
-print(res)
+n = int(input())
+if n < 3:
+    print(1)
+else:
+    prev2, prev1 = 0, 1
+    for i in range(n - 2):
+        temp = prev2 + prev1
+        prev2 = prev1
+        prev1 = temp
+    print(prev2 + prev1)
