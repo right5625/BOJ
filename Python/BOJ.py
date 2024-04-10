@@ -1,13 +1,7 @@
-from collections import defaultdict
-
-N = int(input())
-A = list(map(int, input().split()))
-D = defaultdict(bool)
-for i in A:
-    D[i] = True
-res = 'No'
-for i in A:
-    if D[i] and D[i + 3] and D[i + 6]:
-        res = 'Yes'
+l, r = map(int, input().split())
+res = -1
+for i in range(l, r + 1):
+    if len(str(i)) == len(set(str(i))):
+        res = i
         break
 print(res)
