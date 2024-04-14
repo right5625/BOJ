@@ -1,5 +1,1 @@
-lst = [int(input()) for _ in range(int(input()))]
-res = 0
-for i in set(lst):
-    res = max(res, lst.count(i))
-print(res)
+print('Is an anagram.' if sorted(input().replace(' ', '')) == sorted(input().replace(' ', '')) else 'Is not an anagram.')
