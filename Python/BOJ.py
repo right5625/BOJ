@@ -1,5 +1,5 @@
-for _ in range(int(input())):
-    N, C, S = input().split()
-    for _ in range(int(C)):
-        S = S[int(N):] + S
-    print(S)
+while True:
+    n = int(input())
+    if n == -1:
+        break
+    print(int('0b' + bin(n)[2:].zfill(32)[::-1], 2))
