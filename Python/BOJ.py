@@ -1,2 +1,5 @@
 N = int(input())
-print(sum(sorted(list(map(int, input().split())))[1:-1]))
+A = list(map(int, input().split()))
+for i in range(len(A)):
+    if A[i] == max(A):
+        print(chr(65 + i), end = '')
