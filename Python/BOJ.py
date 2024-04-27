@@ -1,5 +1,10 @@
-N = int(input())
-A = list(map(int, input().split()))
-for i in range(len(A)):
-    if A[i] == max(A):
-        print(chr(65 + i), end = '')
+S = input()
+res = 0
+for i in range(0, len(S), 3):
+    if S[i] != 'P':
+        res += 1
+    if S[i + 1] != 'E':
+        res += 1
+    if S[i + 2] != 'R':
+        res += 1
+print(res)
