@@ -1,7 +1,6 @@
-dic = {i : 0 for i in 'lkp'}
-for _ in range(3):
-    try:
-        dic[input()[0]] += 1
-    except:
-        pass
-print('GLOBAL' if list(dic.values()).count(1) == 3 else 'PONIX')
+res = 0
+for _ in range(int(input())):
+    T = list(map(int, input().split()))
+    if (T.count(-1) in [1, 2] and len(T[:T.index(-1)]) + T.count(-1) == 3 and T[:T.index(-1)] == sorted(T[:T.index(-1)])) or (-1 not in T and T == sorted(T)):
+        res += 1
+print(res)
