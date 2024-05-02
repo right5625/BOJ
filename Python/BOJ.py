@@ -1,4 +1,6 @@
-A, B, C = map(int, input().split())
-I, J, K = map(int, input().split())
-M = min(A / I, B / J, C / K)
-print(A - I * M, B - J * M, C - K * M)
+prev2, prev1, res = 0, 1, 1
+for _ in range(1, int(input())):
+    res = prev2 + prev1
+    prev2 = prev1
+    prev1 = res
+print(res)
