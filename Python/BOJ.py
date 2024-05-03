@@ -1,6 +1,6 @@
-prev2, prev1, res = 0, 1, 1
-for _ in range(1, int(input())):
-    res = prev2 + prev1
-    prev2 = prev1
-    prev1 = res
-print(res)
+A = list(map(int, input().split()))
+while A != sorted(A):
+    for i in range(len(A) - 1):
+        if A[i] > A[i + 1]:
+            A[i], A[i + 1] = A[i + 1], A[i]
+            print(*A)
