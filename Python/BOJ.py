@@ -1,10 +1,12 @@
-while True:
-    n = int(input())
-    if n == 0:
+N = input()
+res = 'NO'
+for i in range(1, len(N)):
+    a = b = 1
+    for j in list(map(int, N[:i])):
+        a *= j
+    for j in list(map(int, N[i:])):
+        b *= j
+    if a == b:
+        res = 'YES'
         break
-    a = list(input() for _ in range(n))
-    key = sorted(list(i.lower() for i in a))[0]
-    for i in a:
-        if key == i.lower():
-            print(i)
-            break
+print(res)
