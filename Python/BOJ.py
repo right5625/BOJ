@@ -1,12 +1,8 @@
-N = input()
+N = int(input())
+X, S = map(int, input().split())
 res = 'NO'
-for i in range(1, len(N)):
-    a = b = 1
-    for j in list(map(int, N[:i])):
-        a *= j
-    for j in list(map(int, N[i:])):
-        b *= j
-    if a == b:
+for _ in range(N):
+    c, p = map(int, input().split())
+    if X >= c and S < p:
         res = 'YES'
-        break
 print(res)
