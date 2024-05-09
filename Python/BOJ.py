@@ -1,2 +1,7 @@
-a, b, c = map(int, input().split())
-print(c ** 2 - (max(a, b)) if c else int((a + b) ** 0.5))
+for _ in range(int(input())):
+    x = int(input())
+    inc = 1
+    while x > 10 ** inc:
+        x = int(round(x + 0.1, -inc))
+        inc += 1
+    print(x)
