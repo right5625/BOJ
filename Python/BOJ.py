@@ -1,7 +1,7 @@
-for _ in range(int(input())):
-    x = int(input())
-    inc = 1
-    while x > 10 ** inc:
-        x = int(round(x + 0.1, -inc))
-        inc += 1
-    print(x)
+N = int(input())
+res = [0] * N
+for i in list(zip(*[list(map(int, input().split())) for _ in range(N)])):
+    for j in range(N):
+        if i.count(i[j]) == 1:
+            res[j] += i[j]
+print(*res, sep = '\n')
