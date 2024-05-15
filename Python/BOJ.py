@@ -1,7 +1,3 @@
-for _ in range(int(input())):
-    input()
-    res = 0
-    for i, j in zip(list(map(int, input().split())), list(map(int, input().split()))):
-        if i != j:
-            res += 1
-    print(res)
+input()
+S = input()
+print(*[v for k, v in {'I' : 1, 'II' : 2, 'III' : 3, 'IV' : 4, 'V' : 5, 'VI' : 6, 'VII' : 7, 'VIII' : 8, 'IX' : 9, 'X' : 10, 'XI' : 11, 'XII' : 12}.items() if k in S])
