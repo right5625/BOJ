@@ -1,10 +1,2 @@
 k = int(input())
-n = int(input())
-a = list(map(int, input().split()))
-s = sum(a)
-res = 'NO'
-for i in a:
-    if s - i >= k:
-        res = 'YES'
-        break
-print(res)
+print(30 * (k // 5 + 1) * (k % 5) if k // 5 < 1 else ((k // 5) * (150 * (k // 5 + 1)) // 2) + (30 * (k // 5 + 1) * (k % 5)))
