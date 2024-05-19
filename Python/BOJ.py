@@ -1,2 +1,1 @@
-k = int(input())
-print(30 * (k // 5 + 1) * (k % 5) if k // 5 < 1 else ((k // 5) * (150 * (k // 5 + 1)) // 2) + (30 * (k // 5 + 1) * (k % 5)))
+print('Unlocked' if ''.join(list(map(str, sorted(list(map(int, input())))))) in ['123', '456', '789', '147', '258', '369', '058'] else 'Locked')
