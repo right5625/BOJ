@@ -1,11 +1,10 @@
 while True:
-    n, m = map(int, input().split())
-    if n == m == 0:
+    C = int(input())
+    if not C:
         break
-    nList, mList = [int(input()) for _ in range(n)], [int(input()) for _ in range(m)]
-    s1, s2 = sum(nList), sum(mList)
-    if (s1 - s2) % 2 == 1:
-        print(-1)
-    else:
-        res = [[i, j] for i in nList for j in mList if i - j == (s1 - s2) // 2]
-        print(-1) if not res else print(*sorted(res, key = lambda x : x[0] + x[1])[0])
+    res = [[1, C]]
+    for i in range(2, int(C ** 0.5) + 1):
+        if C % i == 0:
+            res.append([i, C // i])
+    res = sorted(res, key = lambda x : x[0] + x[1])[0]
+    print(f'Minimum perimeter is {(res[0] + res[1]) * 2} with dimensions {res[0]} x {res[1]}')
