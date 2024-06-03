@@ -1,5 +1,9 @@
-def fac(n):
-    return 1 if n == 1 else n * fac(n - 1)
+import sys
+input = lambda : sys.stdin.readline().rstrip()
 
-for _ in range(int(input())):
-    print(str(fac(int(input())))[-1])
+N, Q = map(int, input().split())
+S = []
+for i in range(1, N + 1):
+    S.extend([i] * int(input()))
+for _ in range(Q):
+    print(S[int(input())])
