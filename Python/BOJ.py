@@ -1,11 +1,10 @@
-import sys
-input = lambda : sys.stdin.readline().rstrip()
-
-N, Q = map(int, input().split())
-L = list(map(int, input().split()))
-for _ in range(Q):
-    A, B, C = map(int, input().split())
-    if A == 1:
-        L[B - 1] = C
-    else:
-        print(abs(L[C - 1] - L[B - 1]))
+while True:
+    N, Z = input().split()
+    if N == '#' and Z == '0':
+        break
+    P = int(input())
+    for _ in range(int(input())):
+        A, B = map(int, input().split())
+        P = max(P - A, 0)
+        P = min(P + B, int(Z))
+    print(N, P)
