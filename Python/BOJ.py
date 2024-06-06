@@ -1,10 +1,4 @@
-while True:
-    N, Z = input().split()
-    if N == '#' and Z == '0':
-        break
-    P = int(input())
-    for _ in range(int(input())):
-        A, B = map(int, input().split())
-        P = max(P - A, 0)
-        P = min(P + B, int(Z))
-    print(N, P)
+for i in range(int(input())):
+    input()
+    count = list(input().split()).count('sheep')
+    print(f'Case {i + 1}: This list contains {count} sheep.\n')
