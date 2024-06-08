@@ -1,12 +1,3 @@
-while True:
-    n = int(input())
-    if n == 0:
-        break
-    lst = [input() for _ in range(n)]
-    res = 0
-    while True:
-        lst = list(map(lambda x : x[1:], lst))
-        if len(set(lst)) != n or '' in lst:
-            break
-        res += 1
-    print(res)
+n = int(input())
+for i in range(n):
+    print(*[i * n + j for j in range(1, n + 1)]) if i % 2 == 0 else print(*[i * n + j for j in range(1, n + 1)][::-1])
