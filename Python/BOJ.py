@@ -1,9 +1,6 @@
-import sys
-from collections import defaultdict
-input = lambda : sys.stdin.readline().rstrip()
+import string
 
-res = defaultdict(int)
-for _ in range(int(input())):
-    g, r = map(int, input().split())
-    res[r] = max(res[r], g)
-print(len(res))
+for i in [input() for _ in range(int(input()))]:
+    if sum([i.count(j) for j in string.ascii_uppercase]) <= sum([i.count(j) for j in string.ascii_lowercase]) and len(i) <= 10 and sum([i.count(j) for j in list(map(str, range(10)))]) != len(i):
+        print(i)
+        break
