@@ -1,5 +1,4 @@
 import string
-from collections import defaultdict
 
 A = input()
 B = ''.join([i for i in input() if i in string.ascii_uppercase])
