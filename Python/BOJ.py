@@ -1,9 +1,6 @@
-n = int(input())
-P = [list(map(int, input().split())) for _ in range(n)]
-for _ in range(int(input())):
-    i, d = map(int, input().split())
-    res = 0
-    for j in range(1, n + 1):
-        if ((P[i - 1][0] - P[j - 1][0]) ** 2 + (P[i - 1][1] - P[j - 1][1]) ** 2) ** 0.5 <= d:
-            res += 1
-    print(res - 1)
+import string
+from collections import defaultdict
+
+A = input()
+B = ''.join([i for i in input() if i in string.ascii_uppercase])
+print(*[chr(ord(B[i]) + (ord(A[i % len(A)]) - ord('A')) - 26) if chr(ord(B[i]) + (ord(A[i % len(A)]) - ord('A'))) > 'Z' else chr(ord(B[i]) + (ord(A[i % len(A)]) - ord('A'))) for i in range(len(B))], sep = '')
