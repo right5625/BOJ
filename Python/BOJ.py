@@ -1,7 +1,1 @@
-N, X = map(int, input().split())
-res = -1
-for _ in range(N):
-    S, T = map(int, input().split())
-    if S + T <= X:
-        res = max(res, S)
-print(res)
+print(sorted([list(input().split()) for _ in range(7)], key = lambda x : int(x[1]))[-1][0])
