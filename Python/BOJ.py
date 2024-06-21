@@ -1,9 +1,2 @@
-M, DM = map(int, input().split())
-H, DH = map(int, input().split())
-ML = [max(M - DM * i, 0) for i in range(100)]
-HL = [max(H - DH * i, 0) for i in range(100)]
-res = 0
-for _ in range(int(input())):
-    C, B = map(int, input().split())
-    res += max(sum(ML[:C]), sum(HL[:B]))
-print(res)
+a, b, c = input().split()
+print({sorted([int(a + b + c), int(a + c + b), int(b + a + c), int(b + c + a), int(c + a + b), int(c + b + a)])[i] : i + 1 for i in range(6)}[int(input())])
