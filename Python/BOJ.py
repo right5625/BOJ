@@ -1,2 +1,12 @@
-a, b, c = input().split()
-print({sorted([int(a + b + c), int(a + c + b), int(b + a + c), int(b + c + a), int(c + a + b), int(c + b + a)])[i] : i + 1 for i in range(6)}[int(input())])
+while True:
+    s1, s2 = input().split()
+    if s1 == s2 == '#':
+        break
+    res = [0, 0]
+    for _ in range(int(input())):
+        c1, c2 = input().split()
+        if c1 == c2:
+            res[0] += 1
+        else:
+            res[1] += 1
+    print(f'{s1} {res[0]} {s2} {res[1]}')
