@@ -1,5 +1,8 @@
+import sys
+input = lambda : sys.stdin.readline().rstrip()
+
+res = {i : 0 for i in range(1, 13)}
 for _ in range(int(input())):
-    res = 0
-    for i in list(''.join(list(input().split())[1:]).split('O')):
-        res = max(res, len(i))
-    print("The longest contiguous subsequence of X's is of length", res)
+    res[int(input().split()[1].split('/')[1])] += 1
+for k, v in res.items():
+    print(k, v)
