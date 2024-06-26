@@ -1,8 +1,10 @@
-from collections import defaultdict
-
-res = defaultdict(int)
-N, M = map(int, input().split())
-for i in range(1, N + 1):
-    for j in range(1, M + 1):
-        res[i + j] += 1
-print(*[k for k, v in res.items() if v == max(list(res.values()))], sep = '\n')
+for i in range(int(input())):
+    C = int(input())
+    I = int(input())
+    P = list(map(int, input().split()))
+    flag = True
+    for j in range(I):
+        for k in range(I):
+            if flag and j != k and P[j] + P[k] == C:
+                print(f'Case #{i + 1}: {j + 1} {k + 1}')
+                flag = False
