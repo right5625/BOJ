@@ -1,6 +1,16 @@
-S = list(input().split())
-dic = {'true' : True, 'false' : False}
-if S[1] == 'AND':
-    print('true' if dic[S[0]] and dic[S[2]] else 'false')
-else:
-    print('true' if dic[S[0]] or dic[S[2]] else 'false')
+while True:
+    S = input()
+    if S == '0':
+        break
+    prev = S[0]
+    cnt = 1
+    res = ''
+    for cur in S[1:]:
+        if prev == cur:
+            cnt += 1
+        else:
+            res += str(cnt) + prev
+            prev = cur
+            cnt = 1
+    res += str(cnt) + prev
+    print(res)
