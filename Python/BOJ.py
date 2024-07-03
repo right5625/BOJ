@@ -1,9 +1,6 @@
-n = int(input())
-s = input()
-if len(s) > n:
-    print('Impossible')
-else:
-    res = 0
-    for i in s:
-        res += ord(i) - 96
-    print(res)
+a = set(list(map(int, input().split()))[1:])
+res = 0
+for _ in range(int(input())):
+    if not a.intersection(set(list(map(int, input().split()))[1:])):
+        res += 1
+print(res)
