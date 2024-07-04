@@ -1,1 +1,10 @@
-print(sum([{'A' : 4, 'K' : 3, 'Q' : 2, 'J' : 1, 'X' : 0}[i] for _ in range(int(input())) for i in input()]))
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+n, d = 0, 36
+for i in A:
+    for j in B:
+        if i > j:
+            n += 1
+        elif i == j:
+            d -= 1
+print(f'{n / d:.5f}')
