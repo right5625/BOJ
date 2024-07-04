@@ -1,6 +1,1 @@
-a = set(list(map(int, input().split()))[1:])
-res = 0
-for _ in range(int(input())):
-    if not a.intersection(set(list(map(int, input().split()))[1:])):
-        res += 1
-print(res)
+print(sum([{'A' : 4, 'K' : 3, 'Q' : 2, 'J' : 1, 'X' : 0}[i] for _ in range(int(input())) for i in input()]))
