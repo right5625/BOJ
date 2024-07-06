@@ -1,5 +1,6 @@
-l, r = 9 * 60, 20 * 60 + 59
-for _ in range(int(input())):
-    h1, m1, h2, m2 = map(int, input().split())
-    l, r = max(l, h1 * 60 + m1), min(r, h2 * 60 + m2)
-print('NE' if l >= r else f'TAIP\n{l // 60} {l % 60} {r // 60} {r % 60}')
+M, N = map(int, input().split())
+res = []
+for _ in range(N):
+    res.append(M % N + M // N)
+    M -= res[-1]
+print(f"{' '.join(map(str, sorted(res, reverse = True)))}\n{M}")
