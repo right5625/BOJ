@@ -1,3 +1,12 @@
-for _ in range(int(input())):
-    s = sum([int(S) * int(R) for _ in range(int(input())) for S, R in [input().split()]])
-    print(*[i // s for i in [1296, 2592, 3888]])
+import sys
+input = lambda : sys.stdin.readline().rstrip()
+
+n = int(input())
+k, m1, m2 = map(int, input().split())
+res = 0
+for _ in range(n):
+    s = list(map(int, input().split()))
+    for i in s[2:]:
+        if max(s[0], i * m2) > min(s[0] * k, i * m1):
+            res += 1
+print(res)
