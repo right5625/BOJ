@@ -1,15 +1,14 @@
-H, M = map(int, input().split(':'))
-N = int(input())
-cnt = 0
-while True:
-    if M % 15 == 0:
-        cnt += (H if M == 0 else 1)
-        if N <= cnt:
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+if sum(A) == sum(B):
+    res = 'remis'
+    for i in range(10, -1, -1):
+        if A.count(i) > B.count(i):
+            res = 'Algosia'
             break
-    M += 1
-    if M == 60:
-        M = 0
-        H += 1
-        if H == 13:
-            H = 1
-print(f'{H:02d}:{M:02d}')
+        elif A.count(i) < B.count(i):
+            res = 'Bajtek'
+            break
+    print(res)
+else:
+    print('Algosia' if sum(A) > sum(B) else 'Bajtek')
