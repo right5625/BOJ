@@ -1,12 +1,15 @@
-import sys
-input = lambda : sys.stdin.readline().rstrip()
-
-n = int(input())
-k, m1, m2 = map(int, input().split())
-res = 0
-for _ in range(n):
-    s = list(map(int, input().split()))
-    for i in s[2:]:
-        if max(s[0], i * m2) > min(s[0] * k, i * m1):
-            res += 1
-print(res)
+H, M = map(int, input().split(':'))
+N = int(input())
+cnt = 0
+while True:
+    if M % 15 == 0:
+        cnt += (H if M == 0 else 1)
+        if N <= cnt:
+            break
+    M += 1
+    if M == 60:
+        M = 0
+        H += 1
+        if H == 13:
+            H = 1
+print(f'{H:02d}:{M:02d}')
