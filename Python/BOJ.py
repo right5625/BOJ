@@ -1,5 +1,26 @@
 while True:
-    K, J, T, D = map(int, input().split())
-    if K == J == T == D == 0:
+    S = list(input().split())
+    if S[0] == '#':
         break
-    print('yes' if K + 0.5 > max(J - 0.5, 0) * 9 + max(T - 0.5, 0) * 4 + max(D - 0.5, 0) * 4 and max(K - 0.5, 0) < (J + 0.5) * 9 + (T + 0.5) * 4 + (D + 0.5) * 4 else 'no')
+    H = [False] * 21
+    cur = int(S[0])
+    H[cur] = True
+    flag = False
+    for i in S[1:]:
+        if i[0] == 'U':
+            cur += int(i[1])
+        else:
+            cur -= int(i[1])
+        if cur < 1 or cur > 20 or H[cur]:
+            flag = True
+            break
+        H[cur] = True
+    if flag:
+        print('illegal')
+    elif False in H[1:]:
+        for i in range(1, 21):
+            if not H[i]:
+                print(i, end = ' ')
+        print()
+    else:
+        print('none')
