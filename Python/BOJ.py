@@ -1,8 +1,12 @@
-x = int(input())
-m = int(input())
-res = 'No such integer exists.'
-for n in range(1, m):
-    if (x * n) % m == 1:
-        res = n
+import sys
+input = lambda : sys.stdin.readline().rstrip()
+
+while True:
+    if not int(input()):
         break
-print(res)
+    cur, res = 300, 0
+    for i in list(map(int, input().split())):
+        if cur >= i:
+            cur -= i
+            res += i
+    print(res)
