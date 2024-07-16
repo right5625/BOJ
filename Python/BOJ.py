@@ -1,12 +1,6 @@
 import sys
 input = lambda : sys.stdin.readline().rstrip()
 
-while True:
-    if not int(input()):
-        break
-    cur, res = 300, 0
-    for i in list(map(int, input().split())):
-        if cur >= i:
-            cur -= i
-            res += i
-    print(res)
+for _ in range(int(input())):
+    L, R, S = map(int, input().split())
+    print(min((S - L) * 2 + 1, (R - S) * 2))
