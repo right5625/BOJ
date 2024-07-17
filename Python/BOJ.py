@@ -1,6 +1,10 @@
-import sys
-input = lambda : sys.stdin.readline().rstrip()
-
-for _ in range(int(input())):
-    L, R, S = map(int, input().split())
-    print(min((S - L) * 2 + 1, (R - S) * 2))
+while True:
+    n = int(input())
+    if not n:
+        break
+    a = list(map(int, input().split()))
+    res = temp = sum(a[:3])
+    for i in range(n - 3):
+        temp = temp - a[i] + a[i + 3]
+        res = max(res, temp)
+    print(res)
