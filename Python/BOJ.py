@@ -1,5 +1,3 @@
-while True:
-    n, m, c = map(int, input().split())
-    if n == m == c == 0:
-        break
-    print(((n - 7) // 2) * ((m - 7) // 2) + ((n - 6) // 2) * ((m - 6) // 2) if c == 1 else ((n - 7) // 2) * ((m - 6) // 2) + ((n - 6) // 2) * ((m - 7) // 2))
+for _ in range(int(input())):
+    N, A, D = map(int, input().split())
+    print(sum([A + D * i for i in range(N)]))
