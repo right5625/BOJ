@@ -1,8 +1,10 @@
 for _ in range(int(input())):
-    words = [input() for _ in range(3)]
-    res = 'Yes'
-    for i in range(3):
-        for j in range(3):
-            if i != j and (words[i].startswith(words[j]) or words[i].endswith(words[j])):
-                res = 'No'
-    print(res)
+    n = int(input())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+    res = 0
+    for i in range(n):
+        for j in range(i + 1, n):
+            if a[i] <= b[j]:
+                res = max(res, abs(i - j))
+    print(f'The maximum distance is {res}\n')
