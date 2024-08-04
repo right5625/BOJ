@@ -1,4 +1,9 @@
-N, K, M = map(int, input().split())
-G = [list(map(int, input().split()))[1:] for _ in range(K)]
-C = list(map(int, input().split()))
-print(sum([-(-sum(C[j - 1] for j in i) // M) for i in G]))
+from collections import defaultdict
+
+for _ in range(int(input())):
+    dic = defaultdict(int)
+    for _ in range(int(input())):
+        s, a, b = input().split()
+        for i in range(int(a), int(b)):
+            dic[i] += 1
+    print(''.join(chr(v + ord('A') - 1) for _, v in sorted(dic.items())))
