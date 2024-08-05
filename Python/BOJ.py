@@ -1,8 +1,20 @@
 while True:
-    n, f = input().split()
-    if n == '#':
-        break
-    print(f'{n} Library')
-    for i in range(int(input())):
-        w, s = input().split()
-        print(f'Book {i + 1} {"horizontal" if int(w) >= int(f) * len(s) + 2 else "vertical"}')
+    card = []
+    for _ in range(4):
+        s = input().split()
+        if s[0] == '#':
+            exit()
+        card.extend(s)
+    card.reverse()
+    pile = [[] for _ in range(13)]
+    for i, j in enumerate(card):
+        pile[i % 13].append(j)
+    cur = pile[12].pop()
+    cnt = 1
+    while True:
+        try:
+            cur = pile['A23456789TJQK'.index(cur[0])].pop()
+            cnt += 1
+        except:
+            break
+    print(f'{cnt:02d},{cur}')
