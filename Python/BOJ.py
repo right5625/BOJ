@@ -1,11 +1,7 @@
-import sys
-input = lambda : sys.stdin.readline().rstrip()
-
-res = []
-prevA = prevB = 0
-for i in range(int(input())):
-    A, B = map(int, input().split())
-    if abs(A - B) % 12 == abs(prevA - prevB) % 12 == 7 and A != prevA and B != prevB:
-        res.append(i)
-    prevA, prevB = A, B
-print(*res, sep = '\n') if res else print('POLE')
+x, s = map(int, input().split())
+cur = cnt = 0
+while s > 1 and cur < x:
+    cur += s
+    cnt += 1
+    s //= 2
+print(cnt + max(x - cur, 0))
