@@ -1,4 +1,4 @@
-m = int(input())
-a = int(input())
-b = int(input())
-print(m - a + b if a > b else b - a)
+import re
+
+for _ in range(int(input())):
+    print(re.sub(r'(?<!^)([A-Z])', r'_\1', input()).lower())
