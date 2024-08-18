@@ -1,5 +1,6 @@
-N = int(input())
-S = input()
-while 'PS4' in S or 'PS5' in S:
-    S = S.replace('PS4', 'PS').replace('PS5', 'PS')
-print(S)
+import sys
+input = lambda : sys.stdin.readline().rstrip()
+
+for _ in range(int(input())):
+    n, k = map(int, input().split())
+    print(min(n, k - 1))
