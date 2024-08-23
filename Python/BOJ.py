@@ -1,6 +1,9 @@
-cena = list(input().split())
-print(
-    cena[0]
-    + ("'" + cena[1][1] if cena[0][-1] == cena[1][0] else cena[1])
-    + ("'" + cena[2][1] if cena[1][-1] == cena[2][0] else cena[2])
-)
+for _ in range(int(input())):
+    n = int(input())
+    a = list(map(int, input().split()))
+    res = 0
+    for i in range(n):
+        for j in range(0, i):
+            if a[j] <= a[i]:
+                res += 1
+    print(res)
