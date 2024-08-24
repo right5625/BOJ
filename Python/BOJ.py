@@ -1,9 +1,3 @@
 for _ in range(int(input())):
-    n = int(input())
-    a = list(map(int, input().split()))
-    res = 0
-    for i in range(n):
-        for j in range(0, i):
-            if a[j] <= a[i]:
-                res += 1
-    print(res)
+    S = input()
+    print(sorted([S[i:] + S[:i] for i in range(len(S))])[0])
