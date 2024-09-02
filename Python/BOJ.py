@@ -1,9 +1,4 @@
-A, B = map(int, input().split())
-cnt = 0
-if A % 2 == 0:
-    A += 1
-    cnt += 1
-if B % 2 == 1:
-    B -= 1
-    cnt += 1
-print(cnt + (B - A + 1) // 2)
+for _ in range(int(input())):
+    A = list(map(int, input().split()))
+    B = list(map(int, input().split()))
+    print(min([abs(i - j) for i in A[1:] for j in B[1:]]))
