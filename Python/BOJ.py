@@ -1,11 +1,13 @@
-cur = 0
-res = "See you next month"
+S = input()
+res = []
 for _ in range(int(input())):
-    x, y = map(int, input().split())
-    if x == 1:
-        cur += y
-    else:
-        cur -= y
-        if cur < 0:
-            res = "Adios"
-print(res)
+    s = input()
+    flag = True
+    for i, j in zip(S, s):
+        if i != "*" and i != j:
+            flag = False
+            break
+    if flag:
+        res.append(s)
+print(len(res))
+print(*res, sep="\n")
