@@ -1,5 +1,1 @@
-from math import ceil
-
-a, b = map(int, input().split())
-d = int(input())
-print(ceil(a * b / 12) * d)
+print(sum([i * j for i, j in zip([int(input()) for _ in range(3)], range(3, 6))]))
