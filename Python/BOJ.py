@@ -1,1 +1,10 @@
-print(sum([i * j for i, j in zip([int(input()) for _ in range(3)], range(3, 6))]))
+import sys
+
+D = int(input())
+flag = True
+for i in list(map(int, sys.stdin.read().splitlines())):
+    if flag and D > i:
+        D += i
+    else:
+        flag = False
+print(D)
