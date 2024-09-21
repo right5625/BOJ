@@ -1,10 +1,11 @@
 import sys
 
-D = int(input())
-flag = True
-for i in list(map(int, sys.stdin.read().splitlines())):
-    if flag and D > i:
-        D += i
-    else:
-        flag = False
-print(D)
+input = lambda: sys.stdin.readline().rstrip()
+
+N = int(input())
+H = [int(input()) for _ in range(N)]
+res = 0
+for i in range(N // 2):
+    if H[i] == H[i + N // 2]:
+        res += 2
+print(res)
