@@ -1,7 +1,3 @@
-N = int(input())
-if -(2**15) <= N <= 2**15 - 1:
-    print("short")
-elif -(2**31) <= N <= 2**31 - 1:
-    print("int")
-else:
-    print("long long")
+for _ in range(int(input())):
+    S = input()
+    print([S[i : i + 3] == "WOW" for i in range(len(S) - 2)].count(True))
