@@ -1,6 +1,12 @@
-n = int(input())
-b = input()
-print(
-    b[0]
-    + "".join(["1" if (b[i - 1] + b[i]).count("1") == 1 else "0" for i in range(1, n)])
-)
+import re
+
+c = 1
+while True:
+    a, b = input().split()
+    if a == b == "#":
+        break
+    print(f"Case {c}")
+    for _ in range(int(input())):
+        print(re.sub(rf"[{a + b + a.upper() + b.upper()}]", "_", input()))
+    print()
+    c += 1
