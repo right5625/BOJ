@@ -1,1 +1,1 @@
-print(*(["LoveisKoreaUniversity"] * int(input())), sep=" ")
+print(int(float(input())))
