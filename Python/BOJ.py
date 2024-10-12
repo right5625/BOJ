@@ -1,7 +1,8 @@
-for _ in range(int(input())):
-    a, b, c = map(int, input().split())
-    res = set()
-    for i in range(1, a):
-        if i % b == 0 or i % c == 0:
-            res.add(i)
-    print(f"{a} {b} {c}\n{len(res)}")
+N = int(input())
+K = [list(map(int, input().split())) for _ in range(N)]
+col = [K[i][0] for i in range(N)]
+(
+    print(0 if col == sorted(col) else 3)
+    if K[0] == sorted(K[0])
+    else print(1 if col == sorted(col) else 2)
+)
