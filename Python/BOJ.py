@@ -1,8 +1,5 @@
-N = int(input())
-K = [list(map(int, input().split())) for _ in range(N)]
-col = [K[i][0] for i in range(N)]
-(
-    print(0 if col == sorted(col) else 3)
-    if K[0] == sorted(K[0])
-    else print(1 if col == sorted(col) else 2)
-)
+X, A, B = int(input()), int(input()), int(input())
+res = X * A
+if B:
+    res += int(input()) if A else sum([int(input()) for _ in range(X)])
+print(res)
