@@ -1,14 +1,13 @@
-import sys
+import string
 
-input = lambda: sys.stdin.readline().rstrip()
-
-n = int(input())
-a = []
-pig = 0
-for _ in range(n):
-    s, i = input().split()
-    if s == "pig":
-        pig = max(pig, int(i))
-    else:
-        a.append(int(i))
-print(pig + sum([i for i in a if i < pig]))
+while True:
+    if input() == "ENDOFINPUT":
+        break
+    for i in input():
+        (
+            print(chr(ord(i) + 21) if ord(i) < 70 else chr(ord(i) - 5), end="")
+            if i in string.ascii_uppercase
+            else print(i, end="")
+        )
+    print()
+    input()
