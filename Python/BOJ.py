@@ -1,13 +1,9 @@
-import string
-
-while True:
-    if input() == "ENDOFINPUT":
-        break
-    for i in input():
-        (
-            print(chr(ord(i) + 21) if ord(i) < 70 else chr(ord(i) - 5), end="")
-            if i in string.ascii_uppercase
-            else print(i, end="")
-        )
-    print()
-    input()
+K = int(input())
+dic = {i: i for i in range(1, K + 1)}
+for _ in range(int(input())):
+    r = int(input())
+    for i in range(r, len(dic) + 1, r):
+        dic[i] = False
+    dic = {k: v for k, v in dic.items() if v}
+    dic = {k: v for k, v in zip(range(1, len(dic) + 1), dic.values())}
+print(*dic.values(), sep="\n")
