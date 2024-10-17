@@ -1,9 +1,5 @@
-K = int(input())
-dic = {i: i for i in range(1, K + 1)}
+from math import log10
+
 for _ in range(int(input())):
-    r = int(input())
-    for i in range(r, len(dic) + 1, r):
-        dic[i] = False
-    dic = {k: v for k, v in dic.items() if v}
-    dic = {k: v for k, v in zip(range(1, len(dic) + 1), dic.values())}
-print(*dic.values(), sep="\n")
+    t, n = input().split(" = ")
+    print(f'{-log10(float(n)) if t == "H" else 14 + log10(float(n)):.2f}')
