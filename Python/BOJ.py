@@ -1,16 +1,7 @@
-import string
-
+S = []
 while True:
-    S = input()
-    if S == "0":
+    try:
+        S.append(len(input()))
+    except:
         break
-    N, S = S.split()
-    res = ""
-    for i in S[::-1]:
-        s = ord(i) - ord("A") + int(N)
-        if i == "_":
-            s -= 4
-        elif i == ".":
-            s += 46
-        res += (string.ascii_uppercase + "_.")[s % 28]
-    print(res)
+print(sum((max(S) - i) ** 2 for i in S[:-1]))
