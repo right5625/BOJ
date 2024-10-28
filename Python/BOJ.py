@@ -1,6 +1,11 @@
-for _ in range(int(input())):
-    s1, s2 = input().split()
-    res = sum(ord(i) - ord(j) for i, j in zip(s1, s2))
-    print(
-        f"Swapping letters to make {s1} look like {s2} {'was FREE.' if res == 0 else f'earned {res} coins.' if res > 0 else f'cost {res * -1} coins.'}"
-    )
+num = 1
+while True:
+    N = int(input())
+    if N == 0:
+        break
+    res = 0
+    for _ in range(N):
+        c, b, l, n = map(int, input().split())
+        res += c * 0.8 + b + l * 1.2 + n * 0.6 - (c * 15.5 + b * 32 + l * 40) / 85
+    print(f"Case #{num}: RM{res:.2f}")
+    num += 1
