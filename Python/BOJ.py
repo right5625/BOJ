@@ -1,11 +1,7 @@
-num = 1
-while True:
-    N = int(input())
-    if N == 0:
-        break
-    res = 0
-    for _ in range(N):
-        c, b, l, n = map(int, input().split())
-        res += c * 0.8 + b + l * 1.2 + n * 0.6 - (c * 15.5 + b * 32 + l * 40) / 85
-    print(f"Case #{num}: RM{res:.2f}")
-    num += 1
+lst1 = [0] * 26
+for i in input():
+    lst1[ord(i) - ord("a")] += 1
+lst2 = [0] * 26
+for i in input():
+    lst2[ord(i) - ord("a")] += 1
+print("".join(chr(ord("a") + i) * max(lst1[i], lst2[i]) for i in range(26)))
