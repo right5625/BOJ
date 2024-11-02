@@ -1,8 +1,10 @@
-pa = pb = 0
-res = "yes"
-for _ in range(int(input())):
-    a, b = map(int, input().split())
-    if a < pa or b < pb:
-        res = "no"
-    pa, pb = a, b
-print(res)
+A, B, N = map(int, input().split())
+res = float("inf")
+for _ in range(N):
+    c, n = map(int, input().split())
+    lst = list(map(int, input().split()))
+    a = lst.index(A) if A in lst else -1
+    b = lst.index(B) if B in lst else -1
+    if a != -1 and a < b:
+        res = min(res, c)
+print(res if res != float("inf") else -1)
