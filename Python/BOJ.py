@@ -1,11 +1,5 @@
-lst = [list(map(float, input().split())) for _ in range(int(input()))]
+import string
+
+s = string.ascii_lowercase + " "
 for _ in range(int(input())):
-    p = int(input())
-    path = list(map(int, input().split()))
-    res = 0
-    for i in range(p - 1):
-        res += (
-            (lst[path[i]][0] - lst[path[i + 1]][0]) ** 2
-            + (lst[path[i]][1] - lst[path[i + 1]][1]) ** 2
-        ) ** 0.5
-    print(round(res))
+    print("".join(s[sum(s.index(j) for j in i) % 27] for i in list(input().split())))
