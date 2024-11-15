@@ -1,3 +1,10 @@
-a = sorted(list(map(int, input().split())))
-b = sorted(list(map(int, input().split())))
-print("YES" if a == b and a[0] ** 2 + a[1] ** 2 == a[2] ** 2 else "NO")
+N = int(input())
+j1, j2, i1, i2 = input(), input(), input(), input()
+res = ""
+for i in range(N):
+    if j1[i] == i1[i]:
+        if j2[i] != i2[i]:
+            res = "htg!"
+            break
+        res += j2[i]
+print(res)
