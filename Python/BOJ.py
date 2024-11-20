@@ -1,2 +1,10 @@
-a, b, c = int(input()), int(input()), int(input())
-print("JAH" if a in [1, 3] and b in [6, 8] and c in [2, 5] else "EI")
+for _ in range(int(input())):
+    S = list(input().strip().split())
+    try:
+        if len(S) > 1 or "-" in S[0] or "." in S[0]:
+            res = "invalid input"
+        else:
+            res = int(S[0])
+    except:
+        res = "invalid input"
+    print(res)
