@@ -1,10 +1,23 @@
-for _ in range(int(input())):
-    S = list(input().strip().split())
-    try:
-        if len(S) > 1 or "-" in S[0] or "." in S[0]:
-            res = "invalid input"
+N, K = map(int, input().split())
+dic = {i: [] for i in 'srp'}
+for i in input():
+    if len(dic[i]) < K:
+        dic[i].append(i)
+    else:
+        if i == 's':
+            if len(dic['r']) < K:
+                dic['r'].append(i)
+            else:
+                dic['p'].append(i)
+        elif i == 'r':
+            if len(dic['p']) < K:
+                dic['p'].append(i)
+            else:
+                dic['s'].append(i)
         else:
-            res = int(S[0])
-    except:
-        res = "invalid input"
-    print(res)
+            if len(dic['s']) < K:
+                dic['s'].append(i)
+            else:
+                dic['r'].append(i)
+for i in dic.values():
+    print(''.join(i))
