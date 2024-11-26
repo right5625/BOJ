@@ -1,8 +1,1 @@
-for _ in range(int(input())):
-    S = input()
-    res = 'YES'
-    for i in set(input()):
-        if i not in S:
-            res = 'NO'
-            break
-    print(res)
+print(1 if int(input()) in set(i * j for i in range(2, 10) for j in range(1, 10)).union({1}) else 0)
