@@ -1,19 +1,10 @@
-n, k = map(int, input().split())
-floor = [0] * (k + 1)
-for _ in range(n):
-    f, t = input().split()
-    if t == 'SAFE':
-        for i in range(1, int(f) + 1):
-            floor[i] = 1
-    else:
-        for i in range(int(f), k + 1):
-            floor[i] = 2
-for i in range(2, k + 1):
-    if floor[i] % 2 == 0:
-        res1 = i
-        break
-for i in range(k - 1, 0, -1):
-    if floor[i] <= 1:
-        res2 = i
-        break
-print(res1, res2)
+n, a, b = map(int, input().split())
+res = [0, 0, 0]
+for i in range(1, n + 1):
+    if i % a == i % b == 0:
+        res[2] += 1
+    elif i % a == 0:
+        res[0] += 1
+    elif i % b == 0:
+        res[1] += 1
+print(*res)
