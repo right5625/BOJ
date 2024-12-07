@@ -1,2 +1,6 @@
-S = list(input().split('('))
-print(f'{S[0]}\n-' if len(S) == 1 else f'{S[0].rstrip()}\n{S[1][:-1]}')
+n, m = map(int, input().split())
+res = 'Yes'
+for _ in range(n):
+    if list(input().split()).count('A') != 1:
+        res = 'No'
+print(res)
