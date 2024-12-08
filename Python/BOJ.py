@@ -1,6 +1,10 @@
-n, m = map(int, input().split())
-res = 'Yes'
-for _ in range(n):
-    if list(input().split()).count('A') != 1:
-        res = 'No'
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+
+res = cur = 0
+for _ in range(int(input())):
+    a, b = map(int, input().split())
+    cur -= a
+    cur += b
+    res = max(res, cur)
 print(res)
