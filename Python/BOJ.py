@@ -1,4 +1,6 @@
-N = int(input())
-X = int(input())
-A = N * ((100 - X) / 100)
-print(f'{(N - A) / A * 100:.6f}')
+from collections import defaultdict
+
+dic = defaultdict(int)
+for i in input():
+    dic[i] += 1
+print(sum(sorted(dic.values())[:-2]))
