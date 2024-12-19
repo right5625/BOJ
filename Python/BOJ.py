@@ -1,14 +1,5 @@
-for i in range(int(input())):
-    N, K = map(int, input().split())
-    A = list(map(int, input().split()))
-    B = list(map(int, input().split()))
-    C = list(map(int, input().split()))
-    D = list(map(int, input().split()))
-    res = 0
-    for a in A:
-        for b in B:
-            for c in C:
-                for d in D:
-                    if a ^ b ^ c ^ d == K:
-                        res += 1
-    print(f'Case #{i + 1}: {res}')
+S = '001'
+for _ in range(15):
+    S += '0' + S[:len(S) // 2] + '1' + S[len(S) // 2 + 1:]
+for c in range(int(input())):
+    print(f'Case #{c + 1}: {S[int(input()) - 1]}')
