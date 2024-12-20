@@ -1,5 +1,9 @@
-S = '001'
-for _ in range(15):
-    S += '0' + S[:len(S) // 2] + '1' + S[len(S) // 2 + 1:]
-for c in range(int(input())):
-    print(f'Case #{c + 1}: {S[int(input()) - 1]}')
+for i in range(int(input())):
+    S = list(input().split())
+    cur, res = int(S[1][0]), 0
+    for j in range(1, int(S[0]) + 1):
+        if j > cur:
+            res += j - cur
+            cur += j - cur
+        cur += int(S[1][j])
+    print(f'Case #{i + 1}: {res}')
