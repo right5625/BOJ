@@ -4,6 +4,5 @@ for i in range(int(input())):
     for j in range(1, int(S[0]) + 1):
         if j > cur:
             res += j - cur
-            cur += j - cur
-        cur += int(S[1][j])
+        cur = max(cur, j) + int(S[1][j])
     print(f'Case #{i + 1}: {res}')
