@@ -1,8 +1,15 @@
+import sys
+input = lambda: sys.stdin.readline().rstrip()
+
 for i in range(int(input())):
-    S = list(input().split())
-    cur, res = int(S[1][0]), 0
-    for j in range(1, int(S[0]) + 1):
-        if j > cur:
-            res += j - cur
-        cur = max(cur, j) + int(S[1][j])
-    print(f'Case #{i + 1}: {res}')
+    N = int(input())
+    AB = list(map(int, input().split()))
+    P = int(input())
+    res = [0] * P
+    for j in range(P):
+        C = int(input())
+        for k in range(0, N * 2, 2):
+            if AB[k] <= C <= AB[k + 1]:
+                res[j] += 1
+    print(f'Case #{i + 1}:', *res)
+    input()
