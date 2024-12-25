@@ -1,7 +1,14 @@
-_, X = map(int, input().split())
-res = 'YES'
-for _ in range(int(input())):
-    input()
-    if X not in list(map(int, input().split())):
-        res = 'NO'
-print(res)
+for i in range(int(input())):
+    _, L, H = map(int, input().split())
+    lst = list(map(int, input().split()))
+    res = 'NO'
+    for j in range(L, H + 1):
+        flag = True
+        for k in lst:
+            if j % k != 0 and k % j != 0:
+                flag = False
+                break
+        if flag:
+            res = j
+            break
+    print(f'Case #{i + 1}: {res}')
