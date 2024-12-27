@@ -1,3 +1,8 @@
-for i in range(int(input())):
-    S = input()
-    print(f'Case #{i + 1}: {S} is ruled by {'nobody' if S[-1] == 'y' else ('a queen' if S[-1] in 'aeiou' else 'a king')}.')
+n = int(input())
+S = input()
+res = -1
+for i in range(1, n):
+    if S[:i].count('L') != S[i:].count('L') and S[:i].count('O') != S[i:].count('O'):
+        res = i
+        break
+print(res)
