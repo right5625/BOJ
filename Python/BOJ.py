@@ -1,9 +1,10 @@
-while True:
-    n = int(input())
-    if not n:
-        break
-    a = sorted(list(map(int, input().split())))
-    res = float('inf')
-    for i in range(n - 1):
-        res = min(res, a[i + 1] - a[i])
-    print(res)
+S = input()
+res, idx = [], 0
+while idx < len(S):
+    if len(set(S[idx : idx + 3])) == 3:
+        res.append('C')
+        idx += 3
+    else:
+        res.append({'R': 'S', 'B': 'K', 'L': 'H'}[S[idx]])
+        idx += 1
+print(''.join(res))
