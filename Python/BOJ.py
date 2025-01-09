@@ -1,2 +1,3 @@
-A, B, C = input().split()
-print(A + B + C) if A == B == C or (A == C and A != B) else print(A + B + C + A if B == C else A + B + C + B + A)
+N, R = map(int, input().split())
+res = set(i for i in range(1, N + 1)) - set(map(int, input().split()))
+print(*sorted(list(res)) if res else '*')
