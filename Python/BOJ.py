@@ -1,2 +1,8 @@
-S = input()
-print(len(S.replace(''.join(sorted(list(set(S)))), '', 1)))
+while True:
+    D, N = input().split()
+    if D == N == '0':
+        break
+    try:
+        print(int(N.replace(D, '')))
+    except:
+        print(0)
