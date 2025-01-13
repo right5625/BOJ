@@ -1,32 +1,30 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
 
-public class Main
-{
-    public static void main(String[] args) throws IOException
-    {
-        BufferedReader br = new BufferedReader(new InputStreamReader((System.in)));
-        List<String> strings = new ArrayList<>();
+public class Main {
+    static BufferedReader br;
+    static BufferedWriter bw;
 
-        try
-        {
-            String str;
+    public static void main(String[] args) throws Exception {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-            while ((str = br.readLine()) != null)
-            {
-                String[] AB = str.split(" ");
-                int A = Integer.parseInt(AB[0]);
-                int B = Integer.parseInt(AB[1]);
+        int X = Integer.parseInt(br.readLine());
+        bw.write(String.valueOf(solution(X)));
+        bw.flush();
+        br.close();
+        bw.close();
+    }
 
-                System.out.println(A + B);
+    static int solution(int X) {
+        int result = 0;
+        while (X != 0) {
+            int cur = 1;
+            while (cur * 2 <= X) {
+                cur *= 2;
             }
+            X -= cur;
+            result++;
         }
-        catch (IOException e)
-        {
-            throw new RuntimeException(e);
-        }
+        return result;
     }
 }
