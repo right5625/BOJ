@@ -1,4 +1,5 @@
 import java.io.*;
+import java.util.*;
 
 public class Main {
     static BufferedReader br;
@@ -7,24 +8,16 @@ public class Main {
     public static void main(String[] args) throws Exception {
         br = new BufferedReader(new InputStreamReader(System.in));
         bw = new BufferedWriter(new OutputStreamWriter(System.out));
-
-        int X = Integer.parseInt(br.readLine());
-        bw.write(String.valueOf(solution(X)));
+        int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        bw.write(Arrays.toString(solution(arr)));
         bw.flush();
         br.close();
         bw.close();
     }
 
-    static int solution(int X) {
-        int result = 0;
-        while (X != 0) {
-            int cur = 1;
-            while (cur * 2 <= X) {
-                cur *= 2;
-            }
-            X -= cur;
-            result++;
-        }
-        return result;
+    static int[] solution(int[] arr) {
+        Integer[] result = Arrays.stream(arr).boxed().distinct().toArray(Integer[]::new);
+        Arrays.sort(result, Collections.reverseOrder());
+        return Arrays.stream(result).mapToInt(Integer::intValue).toArray();
     }
 }
