@@ -1,1 +1,1 @@
-print(int(input()) * int(input()))
+print(int(input()) * 1000 + int(input()) * 10000)
