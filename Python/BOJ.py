@@ -1,7 +1,4 @@
-b = int(input())
-result = 'Nothing'
-for k, v in {i: j for i, j in zip(['Watermelon', 'Pomegranates', 'Nuts'], [int(input()) for _ in range(3)])}.items():
-    if b >= v:
-        result = k
-        break
-print(result)
+N, M = map(int, input().split())
+A = list(map(int, input().split()))
+B = list(map(int, input().split()))
+print(sum((i + j) * max(i, j) for i in A for j in B))
