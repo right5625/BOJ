@@ -1,4 +1,4 @@
 import math
 
-n = int(input())
-print(sum(math.ceil(i / 2) for i in list(map(int, input().split()))))
+d, h = map(float, input().split())
+print(math.pi * 2 * (d / 2 + 5) * h + math.pi * (d / 2 + 5) ** 2)
