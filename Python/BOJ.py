@@ -1,19 +1,2 @@
-import math
-
-while True:
-    V, N, M = input().split()
-    if V == N == M == '0':
-        break
-    V, N, M = float(V), N.zfill(4), M.zfill(4)
-    res = V
-    if N[-4:] == M[-4:]:
-        res *= 3000
-    elif N[-3:] == M[-3:]:
-        res *= 500
-    elif N[-2:] == M[-2:]:
-        res *= 50
-    elif (math.ceil(int(N[-2:]) / 4) == math.ceil(int(M[-2:]) / 4)) or (N[-2:] in ['97', '98', '99', '00'] and M[-2] in ['97', '98', '99', '00']):
-        res *= 16
-    else:
-        res *= 0
-    print(f'{res:.2f}')
+for _ in range(int(input())):
+    print(sum({'A': 1, 'B': 2, 'C': 0, 'D': 1, 'E': 0, 'F': 0, 'G': 0, 'H': 0, 'I': 0, 'J': 0, 'K': 0, 'L': 0, 'M': 0, 'N': 0, 'O': 1, 'P': 1, 'Q': 1, 'R': 1, 'S': 0, 'T': 0, 'U': 0, 'V': 0, 'W': 0, 'X': 0, 'Y': 0, 'Z': 0, ' ': 0}[i] for i in input()))
