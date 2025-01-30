@@ -1,11 +1,8 @@
+N = int(input())
+A = list(map(int, input().split()))
+n = 2 if len(list(filter(lambda x: x % 2 == 0, A))) > N // 2 else 1
 while True:
-    s = input()
-    if s == '#':
+    if n not in A:
+        print(n)
         break
-    res = 'not possible'
-    for i in range(len(s)):
-        t = s[:i] + s[i + 1:]
-        if t == t[::-1]:
-            res = t
-            break
-    print(res)
+    n += 2
