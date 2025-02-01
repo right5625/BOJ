@@ -1,8 +1,3 @@
-N = int(input())
-A = list(map(int, input().split()))
-n = 2 if len(list(filter(lambda x: x % 2 == 0, A))) > N // 2 else 1
-while True:
-    if n not in A:
-        print(n)
-        break
-    n += 2
+for _ in range(int(input())):
+    x, k, h = map(int, input().split())
+    print(format(int(x * min(k - h, 140) + x * max(k - h - 140, 0) * 1.5 + x * h * 2), ','))
