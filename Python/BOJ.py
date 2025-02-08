@@ -1,16 +1,11 @@
-import string
-
-N = int(input())
-S = input().replace('.', '-').replace('?', '-').replace('!', '-').split('-')
-for i in S[:-1]:
-    cnt = 0
-    for j in i.strip().split():
-        if j[0] in string.ascii_uppercase:
-            flag = True
-            for k in j[1:]:
-                if k not in string.ascii_lowercase:
-                    flag = False
-                    break
-            if flag:
-                cnt += 1
-    print(cnt)
+while True:
+    n, m = map(int, input().split())
+    if n == m == 0:
+        break
+    a = list(map(int, input().split()))
+    res = 0
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if a[i] + a[j] <= m:
+                res = max(res, a[i] + a[j])
+    print(res if res != 0 else 'NONE')
